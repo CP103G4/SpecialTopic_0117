@@ -1,0 +1,62 @@
+<resources>
+    <!-- chia -->
+    <string name="app_name">MyRecyvleView0106Homework</string>
+    <string name="text_NoCategoriesFound">No categories found</string>
+    <string name="text_NoNetwork">No network connection available</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_home">Home</string>
+    <string name="title_myfavotite">myfavotite</string>
+    <string name="title_shoppingCar">ShoppingCar</string>
+    <string name="title_information">Information</string>
+    <string name="tab_2">tab_2</string>
+    <string name="tab_3">tab_3</string>
+    <string name="tab_4">tab_4</string>
+    <string name="tab_5">tab_5</string>
+    <string name="tab_6">tab_6</string>
+    <string name="tab_7">tab_7</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <!-- chia -->
+
+
+    <!--other-->
+    <!--<string name="title_home">Home</string>-->
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_Favorite">Favorite</string>
+    <string name="title_Cart">Cart</string>
+    <!--<string name="title_information">information</string>-->
+    <string name="title_Information">Information</string>
+    <string name="title_favorite">favorite</string>
+    <string name="title_cart">cart</string>
+    <string name="title_activity_member">activity_member</string>
+    <string name="Member">Member</string>
+    <string name="title_activity_login">Sign in</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="welcomeText">Welcome to Clo Clo Shopping</string>
+    <string name="logintext">Log in</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="hint_etAccount">Your Account...</string>
+    <string name="hint_etPassword">Your Password...</string>
+    <string name="welcomeText1">Welcome to</string>
+    <string name="Welcometext2">Clo Clo</string>
+    <string name="Welcometext3">Shopping Mall</string>
+    <string name="LoginText">LogIn</string>
+    <string name="IgnoreText">先逛一下</string>
+    <string name="Home">Home</string>
+    <string name="title_activity_setting">Activity_setting</string>
+    <string name="textSignUp">SignUp</string>
+    <!--other-->
+
+</resources>
