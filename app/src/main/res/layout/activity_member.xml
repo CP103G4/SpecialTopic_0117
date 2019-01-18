@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity_member">
+    tools:context=".information.Activity_member">
 
     <ImageView
         android:id="@+id/imageView"
@@ -19,26 +18,28 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
-
     <android.support.v7.widget.Toolbar
-        android:background="@color/colorPrimary"
         android:id="@+id/toolbar"
-        android:minHeight="?actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+        android:background="@color/colorPrimary"
+        android:minHeight="?actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/Theme.AppCompat.Light">
 
 
         <TextView
+            android:id="@+id/toolbar_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/Member"
-            android:textSize="20sp"
-            android:textColor="@android:color/white"
             android:gravity="center_horizontal"
-            android:id="@+id/toolbar_title" />
+            android:text="@string/Member"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
     </android.support.v7.widget.Toolbar>
 
     <ImageView
@@ -75,8 +76,8 @@
         app:sbg_shadow="true"
         app:sbg_shadowElevation="3dp"
         app:sbg_shadowMargin="4dp"
-        tools:layout_editor_absoluteY="56dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="56dp">
 
         <Button
             android:id="@+id/txtOrder"
@@ -106,12 +107,12 @@
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
-        app:labelVisibilityMode="labeled"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:background="?android:attr/windowBackground"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -122,9 +123,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="289dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="289dp" />
 
     <EditText
         android:id="@+id/etmembername"
@@ -132,9 +133,9 @@
         android:layout_height="wrap_content"
         android:ems="15"
         android:inputType="textPersonName"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="308dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="308dp" />
 
     <TextView
         android:id="@+id/tvmemberphone"
