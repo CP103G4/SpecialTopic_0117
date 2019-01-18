@@ -17,7 +17,7 @@
         android:gravity="center"
         android:paddingTop="20sp"
         android:text="@string/welcomeText1"
-        android:textColor="@color/clocloDark"
+        android:textColor="@color/colorDark"
         android:textSize="30sp"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,7 +28,7 @@
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="@string/Welcometext2"
-        android:textColor="@color/clocloDark"
+        android:textColor="@color/colorDark"
         android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@+id/tvWelcometext3" />
 
@@ -39,7 +39,7 @@
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="@string/Welcometext3"
-        android:textColor="@color/clocloDark"
+        android:textColor="@color/colorDark"
         android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@+id/tvWelcometext1" />
 

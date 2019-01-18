@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--chia-->
-    <color name="colorPrimary">#008577</color>
+    <!--<color name="colorPrimary">#008577</color>-->
     <!--<color name="colorPrimaryDark">#00574B</color>-->
     <!--<color name="colorAccent">#D81B60</color>-->
     <color name="colorName">#0000ff</color>
@@ -10,9 +10,9 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorPrimaryDark">#c48b9f</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="clocloPrimary">#F8BBD0</color>
-    <color name="clocloLight">#ffeeff</color>
-    <color name="clocloDark">#c48b9f</color>
+    <color name="colorPrimary">#F8BBD0</color>
+    <color name="colorLight">#ffeeff</color>
+    <color name="colorDark">#c48b9f</color>
     <!--other-->
 
 </resources>

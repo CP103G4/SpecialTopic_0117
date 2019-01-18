@@ -22,7 +22,7 @@
 
 
     <android.support.v7.widget.Toolbar
-        android:background="@color/clocloPrimary"
+        android:background="@color/colorPrimary"
         android:id="@+id/toolbar"
         android:minHeight="?actionBarSize"
         android:layout_width="match_parent"
