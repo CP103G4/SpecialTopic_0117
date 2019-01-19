@@ -1,5 +1,7 @@
 package com.chia.myrecycleview;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -7,7 +9,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.chia.myrecycleview.Login.Common;
+import com.chia.myrecycleview.Login.Login_Activity;
 import com.chia.myrecycleview.goods.HomeTabFragment;
 import com.chia.myrecycleview.myFavorite.MyFavoriteFragment;
 
@@ -39,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
 
+
     };
 
     @Override
@@ -48,6 +54,27 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         initContent();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // 從偏好設定檔中取得登入狀態來決定是否顯示「登出」
+        SharedPreferences pref = getSharedPreferences(Common.PREF_FILE,
+                MODE_PRIVATE);
+        boolean login = pref.getBoolean("login", false);
+        Intent intent = new Intent(this, Login_Activity.class);
+        if (login) {
+
+        } else {
+            if (getIntent().getExtras() == null) {
+                /* 呼叫startActivity()開啟新的頁面 */
+                startActivity(intent);
+            } else {
+                Bundle bundle = getIntent().getExtras();
+                int onIgnore = bundle.getInt("onIgnore");
+            }
+        }
     }
 
     private void initContent() {
