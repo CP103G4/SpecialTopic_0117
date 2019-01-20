@@ -209,7 +209,7 @@ public class GoodMainclassFragment extends Fragment {
         if (networkConnected(activity)) {//檢查是否連網
             url = Common.URL + "/SpotServlet";//提供服務的網頁名
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("action", "getAll");
+            jsonObject.addProperty("param", "getAll");
             retrieveCategoryTask = new CommomTask(url, jsonObject.toString());//透過contructor"呼叫",但還沒"啟動"
             try {
                 String jsonIn = retrieveCategoryTask.execute().get();//"execute啟動傳輸",get取得結果來show
