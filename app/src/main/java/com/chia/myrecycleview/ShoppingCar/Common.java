@@ -6,6 +6,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.widget.Toast;
 
+import com.chia.myrecycleview.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +27,7 @@ public class Common {
 
     // 要讓商品在購物車內順序能夠一定，且使用RecyclerView顯示時需要一定順序，List較佳
     public static List<OrderProduct> CART = new ArrayList<>();
-//
+
 //    // 功能分類
 //    public final static Category[] CATEGORIES = {
 //            new Category(0, "User", R.drawable.user, UserActivity.class),

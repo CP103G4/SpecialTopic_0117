@@ -23,6 +23,10 @@
         <activity
             android:name=".Login.Login_Activity"
             android:launchMode="singleTop" />
+
+        <activity
+            android:name=".ShoppingCar.OrderActivity"
+            android:launchMode="singleTop" />
     </application>
 
 </manifest>

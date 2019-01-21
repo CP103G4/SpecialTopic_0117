@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -56,7 +58,28 @@ public class ShoppingCarFragment extends Fragment {
         findViews(viewFragmentShoppingCar);
         // 訂單帶有日期時間，最好指定轉換成JSON時的格式
         gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+
+        Button btSubmit = viewFragmentShoppingCar.findViewById(R.id.btCheckout);
+        btSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (CART == null || CART.size() <= 0) {
+                    Common.showToast(activity, R.string.cartEmpty);
+                    return;
+                }
+                Intent orderIntent = new Intent(activity, OrderActivity.class);
+                Bundle bundle = new Bundle();
+                orderIntent.putExtras(bundle);
+                startActivity(orderIntent);
+            }
+        });
+        handleView(viewFragmentShoppingCar);
+
         return viewFragmentShoppingCar;
+    }
+
+    private void handleView(View view) {
+
     }
 
     private void findViews(View view) {
@@ -201,10 +224,25 @@ public class ShoppingCarFragment extends Fragment {
         return CART;
     }
 
+    public void onCheckoutClick(View view) {
+        if (CART == null || CART.size() <= 0) {
+            Common.showToast(activity, R.string.cartEmpty);
+            return;
+        }
+        Intent orderIntent = new Intent(activity, OrderActivity.class);
+        Bundle bundle = new Bundle();
+//        bundle.putSerializable("order", order);
+        Intent intentOrder = new Intent(activity, OrderActivity.class);
+        intentOrder.putExtras(bundle);
+        startActivity(intentOrder);
+//        startActivityForResult(loginIntent, REQUEST_LOGIN);
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(MyFavoriteViewModel.class);
         // TODO: Use the ViewModel
     }
+
 }

@@ -83,6 +83,12 @@
 
     <string name="btCheckout">Checkout</string>
     <string name="btClearCart">Clear Cart</string>
+
+    <string name="col_OrderId">ID</string>
+    <string name="col_OrderDate">Date</string>
+    <string name="col_OrderCustomer">Customer</string>
+    <string name="col_OrderSum">Sum</string>
+    <string name="col_Price">Price</string>
     <!--shoppingcar-->
 
 
