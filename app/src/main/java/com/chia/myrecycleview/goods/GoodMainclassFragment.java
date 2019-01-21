@@ -47,6 +47,7 @@ public class GoodMainclassFragment extends Fragment {
     private List<String> subClassificationList = null;
     private FragmentActivity activity;
 
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;

@@ -13,6 +13,7 @@ import android.view.View;
 
 import com.chia.myrecycleview.Login.Common;
 import com.chia.myrecycleview.Login.Login_Activity;
+import com.chia.myrecycleview.ShoppingCar.ShoppingCarFragment;
 import com.chia.myrecycleview.goods.HomeTabFragment;
 import com.chia.myrecycleview.myFavorite.MyFavoriteFragment;
 
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new MyFavoriteFragment();
                     break;
                 case R.id.navigation_shoppingCar:
-                    fragment = new MyFavoriteFragment();
+                    fragment = new ShoppingCarFragment();
                     break;
                 case R.id.navigation_information:
                     fragment = new MyFavoriteFragment();

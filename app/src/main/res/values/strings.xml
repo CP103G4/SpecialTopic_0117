@@ -59,4 +59,31 @@
     <string name="textSignUp">SignUp</string>
     <!--other-->
 
+
+    <!--shoppingcar-->
+    <string name="cartAdd">Add</string>
+    <string name="cartRemove">Remove</string>
+    <string name="cartContents">Cart contents</string>
+    <string name="cartEmpty">Cart is empty</string>
+    <string name="text_btYes">Yes</string>
+    <string name="text_btNo">No</string>
+    <string name="msg_NewQty">New Qty:</string>
+    <string name="text_ProductQty">Qty</string>
+    <string-array name="cartProductQty">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+
+    <string name="btCheckout">Checkout</string>
+    <string name="btClearCart">Clear Cart</string>
+    <!--shoppingcar-->
+
+
 </resources>
