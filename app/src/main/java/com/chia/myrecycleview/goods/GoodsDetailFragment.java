@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.chia.myrecycleview.Task.Common;
+import com.chia.myrecycleview.GoodsTask.Common;
 import com.chia.myrecycleview.R;
-import com.chia.myrecycleview.Task.ImageTask;
+import com.chia.myrecycleview.GoodsTask.ImageTask;
 
 import java.util.concurrent.ExecutionException;
 
@@ -51,9 +51,7 @@ public class GoodsDetailFragment extends AppCompatActivity {
                 } else {
                     imageView.setImageResource(R.drawable.marry);
                 }
-//                imageView.setImageResource(friend.getImageid());
                 tvName.setText(goods.getName());
-                tvPhone.setText(goods.getPhoneNo());
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.chia.myrecycleview.Task;
+package com.chia.myrecycleview.GoodsTask;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

@@ -8,19 +8,19 @@ public class Goods implements Serializable {
     private String name;
     private String description;
     private double prices;
-    private int mainclass;
-    private int subclass;
-    private int evulation;
+    private int mainClass;
+    private int subClass;
+    private int evulatePoints;
 
-    public Goods(int id, String name, String description, double prices, int mainclass, int subclass, int evulation) {
+    public Goods(int id, String name, String description, double prices, int mainClass, int subClass, int evulatePoints) {
         super();
         this.id = id;
         this.name = name;
         this.description = description;
         this.prices = prices;
-        this.mainclass = mainclass;
-        this.subclass = subclass;
-        this.evulation = evulation;
+        this.mainClass = mainClass;
+        this.subClass = subClass;
+        this.evulatePoints = evulatePoints;
     }
 
     public int getId() {
@@ -55,28 +55,28 @@ public class Goods implements Serializable {
         this.prices = prices;
     }
 
-    public int getMainclass() {
-        return mainclass;
+    public int getMainClass() {
+        return mainClass;
     }
 
-    public void setMainclass(int mainclass) {
-        this.mainclass = mainclass;
+    public void setMainClass(int mainClass) {
+        this.mainClass = mainClass;
     }
 
-    public int getSubclass() {
-        return subclass;
+    public int getSubClass() {
+        return subClass;
     }
 
-    public void setSubclass(int subclass) {
-        this.subclass = subclass;
+    public void setSubClass(int subClass) {
+        this.subClass = subClass;
     }
 
-    public int getEvulation() {
-        return evulation;
+    public int getEvulatePoints() {
+        return evulatePoints;
     }
 
-    public void setEvulation(int evulation) {
-        this.evulation = evulation;
+    public void setEvulatePoints(int evulatePoints) {
+        this.evulatePoints = evulatePoints;
     }
 
 }

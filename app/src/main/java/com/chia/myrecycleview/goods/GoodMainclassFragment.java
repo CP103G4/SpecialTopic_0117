@@ -22,9 +22,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chia.myrecycleview.R;
-import com.chia.myrecycleview.Task.CommomTask;
-import com.chia.myrecycleview.Task.Common;
-import com.chia.myrecycleview.Task.ImageTask;
+import com.chia.myrecycleview.GoodsTask.CommomTask;
+import com.chia.myrecycleview.GoodsTask.Common;
+import com.chia.myrecycleview.GoodsTask.ImageTask;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
@@ -190,7 +190,7 @@ public class GoodMainclassFragment extends Fragment {
             ImageTask goodsImageTask = new ImageTask(url, id, imageSize, viewHolder.imageView);
             goodsImageTask.execute();
             viewHolder.tvName.setText(goods.getName());
-            viewHolder.tvPhone.setText(goods.getPhoneNo());
+//            viewHolder.tvPhone.setText(goods.getPhoneNo());
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -208,7 +208,7 @@ public class GoodMainclassFragment extends Fragment {
     private List<Goods> getGoods() {
         List<Goods> goodsListReceive = null;
         if (networkConnected(activity)) {//檢查是否連網
-            url = Common.URL + "/SpotServlet";//提供服務的網頁名
+            url = Common.URL + "/GoodsServlet";//提供服務的網頁名
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("param", "getAll");
             retrieveCategoryTask = new CommomTask(url, jsonObject.toString());//透過contructor"呼叫",但還沒"啟動"
