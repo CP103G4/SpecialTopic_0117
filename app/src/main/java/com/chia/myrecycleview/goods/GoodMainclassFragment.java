@@ -50,7 +50,7 @@ public class GoodMainclassFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     private String mParam1;
-    private String mParam2;
+    private String mainClass;
     private SwipeRefreshLayout swipeRefreshLayout;
 
     public GoodMainclassFragment() {
@@ -80,7 +80,7 @@ public class GoodMainclassFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mainClass = getArguments().getString(ARG_PARAM2);
         }
     }
 
@@ -122,6 +122,13 @@ public class GoodMainclassFragment extends Fragment {
             RecyclerView rvGoods = itemView.findViewById(R.id.rvGoodsItem);
             rvGoods.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL));
             pagerSnapHelper(rvGoods);
+//            getGoods();
+//            List<Goods> subclassGoodsList = new ArrayList<>();//new ArrayList<String>();
+//            for (int j = 0; j < goodsList.size(); j++){
+//                if (goodsList.get(j).getSubClass() == i){
+//                    subclassGoodsList.add(goodsList.get(j));
+//                }
+//            }
             rvGoods.setAdapter(new GoodsAdapter(activity, getGoods()));
             return new SubClassification.MyViewHolder(itemView);
         }
@@ -129,6 +136,7 @@ public class GoodMainclassFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull SubClassification.MyViewHolder myViewHolder, int i) {
             myViewHolder.tvGoodsSubClass.setText(subClassificationList.get(i));
+
         }
 
         @Override
@@ -163,13 +171,11 @@ public class GoodMainclassFragment extends Fragment {
         class MyViewHolder extends RecyclerView.ViewHolder {
             ImageView imageView;
             TextView tvName;
-            TextView tvPhone;
 
             public MyViewHolder(View itemView) {
                 super(itemView);
                 imageView = itemView.findViewById(R.id.imageView);
                 tvName = itemView.findViewById(R.id.tvName);
-                tvPhone = itemView.findViewById(R.id.tvPhone);
             }
         }
 
@@ -190,13 +196,12 @@ public class GoodMainclassFragment extends Fragment {
             ImageTask goodsImageTask = new ImageTask(url, id, imageSize, viewHolder.imageView);
             goodsImageTask.execute();
             viewHolder.tvName.setText(goods.getName());
-//            viewHolder.tvPhone.setText(goods.getPhoneNo());
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(activity, GoodsDetailFragment.class);
                     Bundle bundle = new Bundle();
-                    bundle.putSerializable("spot", goods);
+                    bundle.putSerializable("goods", goods);
                     intent.putExtras(bundle);
                     /* 呼叫startActivity()開啟新的頁面 */
                     startActivity(intent);
@@ -210,7 +215,7 @@ public class GoodMainclassFragment extends Fragment {
         if (networkConnected(activity)) {//檢查是否連網
             url = Common.URL + "/GoodsServlet";//提供服務的網頁名
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("param", "getAll");
+            jsonObject.addProperty("param", mainClass);
             retrieveCategoryTask = new CommomTask(url, jsonObject.toString());//透過contructor"呼叫",但還沒"啟動"
             try {
                 String jsonIn = retrieveCategoryTask.execute().get();//"execute啟動傳輸",get取得結果來show

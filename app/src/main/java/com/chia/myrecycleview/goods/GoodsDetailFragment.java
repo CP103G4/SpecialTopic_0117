@@ -13,10 +13,7 @@ import com.chia.myrecycleview.GoodsTask.ImageTask;
 import java.util.concurrent.ExecutionException;
 
 public class GoodsDetailFragment extends AppCompatActivity {
-    ImageView imageView;
-    TextView tvName;
-    TextView tvPhone;
-    private ImageTask spotImageTask;
+    private ImageTask goodsImageTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,19 +25,20 @@ public class GoodsDetailFragment extends AppCompatActivity {
     private void showResults() {
         ImageView imageView = findViewById(R.id.imageView);
         TextView tvName = findViewById(R.id.tvName);
-        TextView tvPhone = findViewById(R.id.tvPhone);
+        TextView tvDescript = findViewById(R.id.tvDescript);
+        TextView tvPrice = findViewById(R.id.tvPrice);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            Goods goods = (Goods) bundle.getSerializable("spot");
+            Goods goods = (Goods) bundle.getSerializable("goods");
             if (goods != null) {
-                String url = Common.URL + "/SpotServlet";
+                String url = Common.URL + "/GoodsServlet";
                 int id = goods.getId();
                 int imageSize = getResources().getDisplayMetrics().widthPixels / 3;
-                spotImageTask = new ImageTask(url, id, imageSize);
+                goodsImageTask = new ImageTask(url, id, imageSize);
                 Bitmap bitmap = null;
 
                 try {
-                    bitmap = spotImageTask.execute().get();
+                    bitmap = goodsImageTask.execute().get();
                 } catch (ExecutionException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
@@ -52,6 +50,8 @@ public class GoodsDetailFragment extends AppCompatActivity {
                     imageView.setImageResource(R.drawable.marry);
                 }
                 tvName.setText(goods.getName());
+                tvDescript.setText(goods.getDescription());
+                tvPrice.setText(String.valueOf(goods.getPrices()));
             }
         }
     }

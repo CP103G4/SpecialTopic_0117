@@ -67,13 +67,14 @@ public class HomeTabFragment extends Fragment {
                 case 1:
                     return TabOther.newInstance();
                 case 2:
+//                    return GoodMainclassFragment.newInstance(String.valueOf(position),"getAll");
                     return TabOther.newInstance();
                 case 3:
-                    return GoodMainclassFragment.newInstance(String.valueOf(position),"man");
+                    return GoodMainclassFragment.newInstance(String.valueOf(position),"getWoman");
                 case 4:
-                    return GoodMainclassFragment.newInstance(String.valueOf(position),"woman");
+                    return GoodMainclassFragment.newInstance(String.valueOf(position),"getMan");
                 case 5:
-                    return GoodMainclassFragment.newInstance(String.valueOf(position),"kid");
+                    return GoodMainclassFragment.newInstance(String.valueOf(position),"getKid");
                 default:
                     return GoodMainclassFragment.newInstance(String.valueOf(position),"pagename");
             }
