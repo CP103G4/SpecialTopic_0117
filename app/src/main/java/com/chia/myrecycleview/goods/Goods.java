@@ -6,23 +6,21 @@ public class Goods implements Serializable {
 
     private int id;
     private String name;
-    private String phoneNo;
-    private String address;
-    private double latitude;
-    private double longitude;
+    private String description;
+    private double prices;
+    private int mainclass;
+    private int subclass;
+    private int evulation;
 
-    public Goods(int id, String name, String phoneNo, String address, double latitude, double longitude) {
+    public Goods(int id, String name, String description, double prices, int mainclass, int subclass, int evulation) {
+        super();
         this.id = id;
         this.name = name;
-        this.phoneNo = phoneNo;
-        this.address = address;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return this.id == ((Goods) obj).id;
+        this.description = description;
+        this.prices = prices;
+        this.mainclass = mainclass;
+        this.subclass = subclass;
+        this.evulation = evulation;
     }
 
     public int getId() {
@@ -41,35 +39,44 @@ public class Goods implements Serializable {
         this.name = name;
     }
 
-    public String getPhoneNo() {
-        return phoneNo;
+    public String getDescription() {
+        return description;
     }
 
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getAddress() {
-        return address;
+    public double getPrices() {
+        return prices;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPrices(double prices) {
+        this.prices = prices;
     }
 
-    public double getLatitude() {
-        return latitude;
+    public int getMainclass() {
+        return mainclass;
     }
 
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
+    public void setMainclass(int mainclass) {
+        this.mainclass = mainclass;
     }
 
-    public double getLongitude() {
-        return longitude;
+    public int getSubclass() {
+        return subclass;
     }
 
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
+    public void setSubclass(int subclass) {
+        this.subclass = subclass;
     }
+
+    public int getEvulation() {
+        return evulation;
+    }
+
+    public void setEvulation(int evulation) {
+        this.evulation = evulation;
+    }
+
 }

@@ -27,6 +27,9 @@
         <activity
             android:name=".ShoppingCar.OrderActivity"
             android:launchMode="singleTop" />
+        <activity
+            android:name=".goods.GoodsDetailFragment"
+            android:launchMode="singleTop" />
     </application>
 
 </manifest>
