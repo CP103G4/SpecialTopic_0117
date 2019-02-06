@@ -76,7 +76,7 @@ public class HomeTabFragment extends Fragment {
                 case 5:
                     return GoodMainclassFragment.newInstance(String.valueOf(position),"getKid");
                 default:
-                    return GoodMainclassFragment.newInstance(String.valueOf(position),"pagename");
+                    return TabOther.newInstance();
             }
 
         }

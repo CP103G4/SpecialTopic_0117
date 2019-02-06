@@ -91,6 +91,7 @@ public class GoodMainclassFragment extends Fragment {
         View viewFragmentGoodSub = inflater.inflate(R.layout.fragment_good_subclass, container, false);
         RecyclerView subClassification = viewFragmentGoodSub.findViewById(R.id.rvGoodsSubClass);
         subClassification.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
+        getGoods();
         getSubClassificationList();
         swipeRefreshLayout = viewFragmentGoodSub.findViewById(R.id.swipeRefresh);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -119,9 +120,9 @@ public class GoodMainclassFragment extends Fragment {
         public SubClassification.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
             View itemView = layoutInflater.inflate(R.layout.fragment_good_list, viewGroup, false);
-            RecyclerView rvGoods = itemView.findViewById(R.id.rvGoodsItem);
-            rvGoods.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL));
-            pagerSnapHelper(rvGoods);
+//            RecyclerView rvGoods = itemView.findViewById(R.id.rvGoodsItem);
+//            rvGoods.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL));
+//            pagerSnapHelper(rvGoods);
 //            getGoods();
 //            List<Goods> subclassGoodsList = new ArrayList<>();//new ArrayList<String>();
 //            for (int j = 0; j < goodsList.size(); j++){
@@ -129,7 +130,7 @@ public class GoodMainclassFragment extends Fragment {
 //                    subclassGoodsList.add(goodsList.get(j));
 //                }
 //            }
-            rvGoods.setAdapter(new GoodsAdapter(activity, getGoods()));
+//            rvGoods.setAdapter(new GoodsAdapter(activity, subclassGoodsList));
             return new SubClassification.MyViewHolder(itemView);
         }
 
@@ -137,6 +138,15 @@ public class GoodMainclassFragment extends Fragment {
         public void onBindViewHolder(@NonNull SubClassification.MyViewHolder myViewHolder, int i) {
             myViewHolder.tvGoodsSubClass.setText(subClassificationList.get(i));
 
+            List<Goods> subclassGoodsList = new ArrayList<>();//new ArrayList<String>();
+            for (int j = 0; j < goodsList.size(); j++){
+                if (goodsList.get(j).getSubClass() == i){
+                    subclassGoodsList.add(goodsList.get(j));
+                }
+            }
+            myViewHolder.rvGoodsItem.setAdapter(new GoodsAdapter(activity, subclassGoodsList));
+            myViewHolder.rvGoodsItem.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL));
+            pagerSnapHelper(myViewHolder.rvGoodsItem);
         }
 
         @Override
@@ -146,26 +156,28 @@ public class GoodMainclassFragment extends Fragment {
 
         public class MyViewHolder extends RecyclerView.ViewHolder {
             TextView tvGoodsSubClass;
+            RecyclerView rvGoodsItem;
 
             public MyViewHolder(@NonNull View itemView) {
                 super(itemView);
                 tvGoodsSubClass = itemView.findViewById(R.id.tvGoodsSubClass);
+                rvGoodsItem = itemView.findViewById(R.id.rvGoodsItem);
             }
         }
     }
 
     private class GoodsAdapter extends RecyclerView.Adapter<GoodsAdapter.MyViewHolder> {
         Context context;
-        List<Goods> goods;
+        List<Goods> subclassGoodsList;
 
-        public GoodsAdapter(Context context, List<Goods> goods) {
+        public GoodsAdapter(Context context, List<Goods> subclassGoodsList) {
             this.context = context;
-            this.goods = goods;
+            this.subclassGoodsList = subclassGoodsList;
         }
 
         @Override
         public int getItemCount() {
-            return goods.size();
+            return subclassGoodsList.size();
         }
 
         class MyViewHolder extends RecyclerView.ViewHolder {
@@ -189,19 +201,19 @@ public class GoodMainclassFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull GoodsAdapter.MyViewHolder viewHolder, int i) {
-            final Goods goods = goodsList.get(i);
-            int id = goods.getId();
+            final Goods subclass = subclassGoodsList.get(i);
+            int id = subclass.getId();
             int imageSize = getResources().getDisplayMetrics().widthPixels / 4;//圖片縮小式螢幕幾倍
 
             ImageTask goodsImageTask = new ImageTask(url, id, imageSize, viewHolder.imageView);
             goodsImageTask.execute();
-            viewHolder.tvName.setText(goods.getName());
+            viewHolder.tvName.setText(subclass.getName());
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(activity, GoodsDetailFragment.class);
                     Bundle bundle = new Bundle();
-                    bundle.putSerializable("goods", goods);
+                    bundle.putSerializable("subclassGoodsList", subclass);
                     intent.putExtras(bundle);
                     /* 呼叫startActivity()開啟新的頁面 */
                     startActivity(intent);

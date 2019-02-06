@@ -29,7 +29,7 @@ public class GoodsDetailFragment extends AppCompatActivity {
         TextView tvPrice = findViewById(R.id.tvPrice);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            Goods goods = (Goods) bundle.getSerializable("goods");
+            Goods goods = (Goods) bundle.getSerializable("subclassGoodsList");
             if (goods != null) {
                 String url = Common.URL + "/GoodsServlet";
                 int id = goods.getId();
