@@ -138,13 +138,13 @@ public class GoodMainclassFragment extends Fragment {
         public void onBindViewHolder(@NonNull SubClassification.MyViewHolder myViewHolder, int i) {
             myViewHolder.tvGoodsSubClass.setText(subClassificationList.get(i));
 
-            List<Goods> subclassGoodsList = new ArrayList<>();//new ArrayList<String>();
+            List<Goods> subclassItemGoodsList = new ArrayList<>();//new ArrayList<String>();
             for (int j = 0; j < goodsList.size(); j++){
-                if (goodsList.get(j).getSubClass() == i){
-                    subclassGoodsList.add(goodsList.get(j));
+                if (goodsList.get(j).getSubclass() == i){
+                    subclassItemGoodsList.add(goodsList.get(j));
                 }
             }
-            myViewHolder.rvGoodsItem.setAdapter(new GoodsAdapter(activity, subclassGoodsList));
+            myViewHolder.rvGoodsItem.setAdapter(new GoodsAdapter(activity, subclassItemGoodsList));
             myViewHolder.rvGoodsItem.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL));
             pagerSnapHelper(myViewHolder.rvGoodsItem);
         }
